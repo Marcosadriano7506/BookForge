@@ -1,107 +1,28 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Edição digital do Guia Prático do DRCM Computação: orientação clara para ensinar Computação.">
-  <meta name="author" content="">
-  <meta name="theme-color" content="#f5f1e8">
-  <meta property="og:type" content="book">
-  <meta property="og:title" content="Guia Prático do DRCM Computação">
-  <meta property="og:description" content="Edição Digital 2026 para leitura online e impressão.">
-  <meta property="og:image" content="assets/icons/social-card.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Guia Prático do DRCM Computação">
-  <meta name="twitter:description" content="Edição Digital 2026 para leitura online e impressão.">
-  <link rel="canonical" href="./">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="icon" href="assets/icons/book.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <title>Guia Prático do DRCM Computação — Edição Digital</title>
-  <script id="bookMetadata" type="application/ld+json">{"@context":"https://schema.org","@type":"Book","inLanguage":"pt-BR","bookFormat":"https://schema.org/EBook"}</script>
-  <script src="book-config.js" defer></script>
-  <script src="script.js" defer></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content=""><meta name="author" content=""><meta name="theme-color" content="#f5f2e9">
+  <meta property="og:type" content="book"><meta property="og:title" content=""><meta property="og:description" content=""><meta property="og:image" content="assets/images/pages/page-001.webp">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content=""><meta name="twitter:description" content="">
+  <link id="canonical" rel="canonical" href=""><link rel="manifest" href="site.webmanifest"><link rel="icon" href="assets/icons/book.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+  <title>BookForge</title><script id="bookMetadata" type="application/ld+json">{}</script><script src="book-config.js" defer></script><script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-  <header class="topbar" id="topo">
-    <a class="wordmark" href="#topo"><span class="wordmark-mark" aria-hidden="true">D</span><span>Guia DRCM</span></a>
-    <nav class="top-actions" aria-label="Ferramentas de leitura">
-      <button class="icon-button" id="tocOpen" type="button" aria-controls="tocDrawer" aria-expanded="false"><span aria-hidden="true">☰</span><span class="button-label">Sumário</span></button>
-      <button class="icon-button" id="searchOpen" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span><span class="sr-only">Pesquisar capítulos</span></button>
-      <button class="icon-button" id="themeToggle" type="button"><span aria-hidden="true">◐</span><span class="sr-only">Alternar tema</span></button>
-      <button class="icon-button" id="shareButton" type="button"><span aria-hidden="true">↗</span><span class="sr-only">Compartilhar</span></button>
-      <a class="button compact pdf-action" href="assets/pdf/guia-drcm-computacao.pdf" download>Baixar PDF</a>
-    </nav>
-  </header>
-
-  <main id="conteudo">
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="hero-copy">
-        <p class="eyebrow">Edição Digital <span>2026</span></p>
-        <h1 id="heroTitle">Guia Prático do <em>DRCM Computação</em></h1>
-        <p class="dek">Um percurso editorial claro para compreender, planejar e levar a Computação à prática pedagógica.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#leitor">Começar a leitura <span aria-hidden="true">↓</span></a>
-          <a class="button secondary pdf-action" href="assets/pdf/guia-drcm-computacao.pdf" download>Baixar PDF</a>
-        </div>
-        <p class="print-note"><span aria-hidden="true">▤</span> Leitura online · versão preparada para impressão</p>
-        <p class="pdf-status" id="pdfStatus">Verificando a edição em PDF…</p>
-      </div>
-      <div class="cover-stage" aria-label="Representação da capa do livro" role="img">
-        <article class="cover">
-          <span class="cover-kicker">GUIA PRÁTICO</span>
-          <strong>DRCM<br>Computação</strong>
-          <span class="cover-rule"></span>
-          <small>EDUCAÇÃO · CURRÍCULO · PRÁTICA</small>
-          <b>2026</b>
-        </article>
-      </div>
-      <a class="scroll-cue" href="#leitor"><span>Explorar o livro</span><span aria-hidden="true">↓</span></a>
-    </section>
-
-    <section class="reader-section" id="leitor" aria-labelledby="readerTitle">
-      <header class="section-heading">
-        <div><p class="eyebrow">Leitor digital</p><h2 id="readerTitle">Leia no seu ritmo</h2></div>
-        <div class="reader-meta" aria-live="polite"><span id="pageIndicator">Página 1 de 26</span><strong id="percentRead">0% lido</strong></div>
-      </header>
-      <div class="resume-banner" id="resumeBanner" hidden>
-        <p>Encontramos uma posição de leitura salva neste dispositivo.</p>
-        <div><button class="button primary" id="resumeButton" type="button">Continuar de onde parei</button><button class="text-button" id="restartButton" type="button">Reiniciar leitura</button></div>
-      </div>
-      <div class="reader-toolbar" aria-label="Controles do leitor">
-        <button class="icon-button" id="previousPage" type="button" disabled aria-disabled="true">← <span>Anterior</span></button>
-        <form id="pageForm"><label for="pageInput">Ir para</label><input id="pageInput" type="number" min="1" value="1" inputmode="numeric"><button type="submit">Ir</button></form>
-        <button class="icon-button" id="nextPage" type="button"><span>Próxima</span> →</button>
-        <button class="icon-button" id="fullscreenButton" type="button">⛶ <span>Tela cheia</span></button>
-      </div>
-      <div class="reader-shell" id="readerShell">
-        <div id="pagesReader" class="pages-reader" hidden></div>
-        <object id="pdfReader" class="pdf-reader" data="assets/pdf/guia-drcm-computacao.pdf#page=1&amp;view=FitH" type="application/pdf" aria-label="Guia Prático do DRCM Computação em PDF">
-          <div class="reader-fallback"><h3>O leitor de PDF não está disponível</h3><p>Abra o documento em uma nova guia ou baixe-o para continuar.</p><a class="button primary pdf-action" href="assets/pdf/guia-drcm-computacao.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a></div>
-        </object>
-        <div class="reader-fallback" id="missingPdf" hidden><span class="fallback-icon" aria-hidden="true">!</span><h3>PDF aguardando publicação</h3><p>O site está pronto. Adicione o arquivo no caminho indicado para habilitar a leitura e o download.</p><code>assets/pdf/guia-drcm-computacao.pdf</code></div>
-      </div>
-      <p class="reader-help">Atalhos: <kbd>S</kbd> sumário, <kbd>D</kbd> tema, <kbd>F</kbd> tela cheia e <kbd>Ctrl</kbd> + <kbd>K</kbd> pesquisa.</p>
-    </section>
-  </main>
-
-  <footer><p>Guia Prático do DRCM Computação <span>·</span> Edição Digital 2026</p><a href="#topo">Voltar ao início</a></footer>
-  <button class="back-top" id="backTop" type="button" aria-label="Voltar ao topo" hidden>↑</button>
-  <div class="scrim" id="scrim" hidden></div>
-  <aside class="drawer" id="tocDrawer" aria-labelledby="tocTitle" aria-hidden="true">
-    <header><div><p class="eyebrow">Navegação</p><h2 id="tocTitle">Sumário</h2></div><button class="icon-button close-control" type="button" aria-label="Fechar sumário">×</button></header>
-    <nav aria-label="Capítulos do livro"><ol id="chapterList"></ol></nav>
-    <button class="search-shortcut" id="drawerSearch" type="button">Pesquisar capítulos <kbd>⌘K</kbd></button>
-  </aside>
-  <dialog id="searchDialog" aria-labelledby="searchTitle">
-    <form method="dialog" class="dialog-head"><h2 id="searchTitle">Pesquisar capítulos</h2><button class="icon-button close-control" value="cancel" aria-label="Fechar pesquisa">×</button></form>
-    <label class="search-field"><span class="sr-only">Título do capítulo</span><span aria-hidden="true">⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Digite um capítulo…"></label>
-    <p class="search-scope">A pesquisa consulta títulos e metadados, não o texto interno do PDF.</p>
-    <ul id="searchResults" class="search-results"></ul>
-    <p id="emptySearch" class="empty-state" hidden>Nenhum capítulo encontrado.</p>
-  </dialog>
-  <p class="toast" id="liveRegion" role="status" aria-live="polite" aria-atomic="true"></p>
-</body>
-</html>
+<a class="skip-link" href="#main">Pular para o conteúdo</a><div class="top-progress" aria-hidden="true"><span id="progressBar"></span></div>
+<header class="topbar" id="topo"><a class="brand" href="#topo"><span aria-hidden="true">BF</span><b data-short-title></b></a><button class="mobile-menu" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu</button><nav id="mainNav" aria-label="Navegação principal"><a href="#topo">Início</a><a href="#leitura">Leitura</a><button id="tocOpen" aria-expanded="false" aria-controls="tocDrawer">Sumário</button><button id="themeToggle">Tema</button><button id="shareButton">Compartilhar</button><a class="pill pdf-download" download>Baixar PDF</a></nav></header>
+<main id="main">
+  <section class="hero" aria-labelledby="heroTitle"><div class="hero-copy"><p class="eyebrow">Edição Digital <span data-year></span></p><h1 id="heroTitle" data-title></h1><p class="dek" data-description></p><p class="byline">Por <strong data-author></strong></p><div class="actions"><a class="pill primary" href="#leitura">Começar a leitura</a><a class="pill pdf-download" download>Baixar PDF</a></div><ul class="facts"><li><b data-total></b> páginas</li><li>Leitura online</li><li>PDF para download</li></ul></div><div class="cover-stage"><div class="cover-skeleton" id="coverSkeleton"><span>Capa da edição digital</span></div><img id="coverImage" width="1600" height="2263" alt="" fetchpriority="high" decoding="async"></div></section>
+  <section class="reader-section" id="leitura" aria-labelledby="readerTitle"><header class="section-head"><div><p class="eyebrow">Leitor editorial</p><h2 id="readerTitle">Uma página de cada vez</h2></div><div class="reading-status"><span id="pageIndicator">Página 1 de 26</span><b id="percentRead">4% lido</b></div></header>
+    <aside class="resume" id="resumeBanner" hidden><p>Você parou na página <b id="resumePage"></b>.</p><div><button id="resumeButton">Continuar</button><button id="restartButton">Começar do início</button><button id="dismissResume" aria-label="Fechar aviso">×</button></div></aside>
+    <div class="reader" id="readerShell"><div class="reader-loading" id="readerLoading"><div class="skeleton"></div><p>Preparando sua edição digital…</p></div><div class="single-stage" id="singleStage" hidden><div class="page-scroll"><img id="singleImage" width="1600" height="2263" alt="" decoding="async"><div class="page-error" id="pageError" hidden><h3>Esta página não pôde ser carregada.</h3><p>Você pode seguir a leitura ou consultar o PDF.</p><a class="pill pdf-open" target="_blank" rel="noopener noreferrer">Abrir PDF</a></div></div></div><div class="continuous" id="continuousReader" hidden></div><div class="online-fallback" id="onlineFallback" hidden><p class="eyebrow">Edição em preparação</p><h3>A versão para leitura online está sendo preparada.</h3><p>Enquanto isso, consulte a edição original em PDF.</p><div class="actions"><a class="pill primary pdf-open" target="_blank" rel="noopener noreferrer">Abrir PDF</a><a class="pill pdf-download" download>Baixar PDF</a></div><p id="pdfMissing" hidden>O arquivo também está temporariamente indisponível.</p></div></div>
+    <div class="reader-controls" id="readerControls" hidden><button id="previousPage">← Anterior</button><form id="pageForm"><label for="pageInput">Ir para</label><input id="pageInput" type="number" min="1" max="26" value="1"><button>Ir</button></form><button id="nextPage">Próxima →</button><span class="divider"></span><button id="zoomOut" aria-label="Diminuir zoom">−</button><button id="zoomReset"><span id="zoomLabel">100%</span></button><button id="zoomIn" aria-label="Aumentar zoom">+</button><button id="fitWidth">Ajustar</button><button id="modeToggle">Modo contínuo</button><button id="fullscreenButton">Tela cheia</button><button id="readerToc">Sumário</button><a class="control-link pdf-download" download>PDF</a></div>
+    <p class="shortcut-help">Atalhos: ←/→ páginas · S sumário · D tema · F tela cheia · Ctrl/Cmd + K pesquisa</p>
+  </section>
+  <section class="about" aria-labelledby="aboutTitle"><div><p class="eyebrow">Sobre o livro</p><h2 id="aboutTitle" data-title></h2><p data-description></p></div><dl><div><dt>Autor</dt><dd data-author></dd></div><div><dt>Ano</dt><dd data-year></dd></div><div><dt>Páginas</dt><dd data-total></dd></div><div><dt>Formato</dt><dd>Edição digital · PDF</dd></div></dl><div class="actions"><a class="pill primary pdf-download" download>Baixar PDF</a><button class="pill" id="aboutShare">Compartilhar</button></div></section>
+</main>
+<footer><div><b data-title></b><p><span data-author></span> · Edição Digital <span data-year></span></p></div><p>Desenvolvido com BookForge</p><a href="#topo">Voltar ao início ↑</a></footer>
+<div class="scrim" id="scrim" hidden></div><aside class="drawer" id="tocDrawer" aria-hidden="true" aria-labelledby="tocTitle"><header><div><p class="eyebrow">Navegação</p><h2 id="tocTitle">Sumário</h2></div><button id="tocClose" aria-label="Fechar sumário">×</button></header><div class="tabs" role="tablist"><button id="chaptersTab" role="tab" aria-selected="true" aria-controls="chaptersPanel">Capítulos</button><button id="pagesTab" role="tab" aria-selected="false" aria-controls="pagesPanel">Páginas</button></div><div id="chaptersPanel" role="tabpanel"><label class="search-label">Pesquisar capítulos<input id="chapterSearch" type="search" autocomplete="off"></label><ol id="chapterList"></ol></div><div id="pagesPanel" role="tabpanel" hidden><ol id="thumbnailList"></ol></div></aside>
+<p class="toast" id="liveRegion" role="status" aria-live="polite" aria-atomic="true"></p>
+<section class="print-only"><h1 data-title></h1><p data-author></p><p>Use Baixar PDF para imprimir a edição completa.</p><a id="printPdf"></a></section>
+</body></html>
