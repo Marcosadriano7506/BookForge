@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Substitua SEU-SITE pela URL pública após o primeiro deploy. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://SEU-SITE.onrender.com/</loc><changefreq>monthly</changefreq></url>
+</urlset>

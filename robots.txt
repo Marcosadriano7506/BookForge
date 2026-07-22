@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Atualize depois do primeiro deploy:
+# Sitemap: https://SEU-SITE.onrender.com/sitemap.xml

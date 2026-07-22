@@ -1,68 +1,107 @@
 <!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-      name="description"
-      content="BookForge transforma PDFs em experiências de leitura digital modernas."
-    >
-    <meta name="theme-color" content="#0b1020">
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Edição digital do Guia Prático do DRCM Computação: orientação clara para ensinar Computação.">
+  <meta name="author" content="Autoria a confirmar">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta property="og:type" content="book">
+  <meta property="og:title" content="Guia Prático do DRCM Computação">
+  <meta property="og:description" content="Edição Digital 2026 para leitura online e impressão.">
+  <meta property="og:image" content="assets/icons/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guia Prático do DRCM Computação">
+  <meta name="twitter:description" content="Edição Digital 2026 para leitura online e impressão.">
+  <link rel="canonical" href="./">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="assets/icons/book.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>Guia Prático do DRCM Computação — Edição Digital</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Guia Prático do DRCM Computação","inLanguage":"pt-BR","datePublished":"2026","bookFormat":"https://schema.org/EBook"}</script>
+  <script src="book-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="topbar" id="topo">
+    <a class="wordmark" href="#topo"><span class="wordmark-mark" aria-hidden="true">D</span><span>Guia DRCM</span></a>
+    <nav class="top-actions" aria-label="Ferramentas de leitura">
+      <button class="icon-button" id="tocOpen" type="button" aria-controls="tocDrawer" aria-expanded="false"><span aria-hidden="true">☰</span><span class="button-label">Sumário</span></button>
+      <button class="icon-button" id="searchOpen" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span><span class="sr-only">Pesquisar capítulos</span></button>
+      <button class="icon-button" id="themeToggle" type="button"><span aria-hidden="true">◐</span><span class="sr-only">Alternar tema</span></button>
+      <button class="icon-button" id="shareButton" type="button"><span aria-hidden="true">↗</span><span class="sr-only">Compartilhar</span></button>
+      <a class="button compact pdf-action" href="assets/pdf/guia-drcm-computacao.pdf" download>Baixar PDF</a>
+    </nav>
+  </header>
 
-    <title>BookForge — Livros digitais modernos</title>
-
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-  </head>
-
-  <body>
-    <header class="site-header">
-      <a class="brand" href="./" aria-label="BookForge — página inicial">
-        <span class="brand__mark" aria-hidden="true">B</span>
-        <span>BookForge</span>
-      </a>
-      <span class="site-header__badge">Em desenvolvimento</span>
-    </header>
-
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero__content">
-          <p class="hero__eyebrow">Uma nova forma de ler</p>
-          <h1 id="hero-title">Book<span>Forge</span></h1>
-          <p class="hero__subtitle">Transforme PDFs em livros digitais modernos.</p>
-          <p class="hero__description">
-            Conteúdo confortável, responsivo e preparado para qualquer tela.
-          </p>
-
-          <!-- As ações permanecem desabilitadas até as funcionalidades serem implementadas. -->
-          <div class="hero__actions" aria-label="Ações do livro">
-            <button class="button button--primary" type="button" disabled>
-              Ler Livro
-            </button>
-            <button class="button button--secondary" type="button" disabled>
-              Baixar PDF
-            </button>
-          </div>
-          <p class="hero__notice">Recursos disponíveis em breve.</p>
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Edição Digital <span>2026</span></p>
+        <h1 id="heroTitle">Guia Prático do <em>DRCM Computação</em></h1>
+        <p class="dek">Um percurso editorial claro para compreender, planejar e levar a Computação à prática pedagógica.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#leitor">Começar a leitura <span aria-hidden="true">↓</span></a>
+          <a class="button secondary pdf-action" href="assets/pdf/guia-drcm-computacao.pdf" download>Baixar PDF</a>
         </div>
+        <p class="print-note"><span aria-hidden="true">▤</span> Leitura online · versão preparada para impressão</p>
+        <p class="pdf-status" id="pdfStatus">Verificando a edição em PDF…</p>
+      </div>
+      <div class="cover-stage" aria-label="Representação da capa do livro" role="img">
+        <article class="cover">
+          <span class="cover-kicker">GUIA PRÁTICO</span>
+          <strong>DRCM<br>Computação</strong>
+          <span class="cover-rule"></span>
+          <small>EDUCAÇÃO · CURRÍCULO · PRÁTICA</small>
+          <b>2026</b>
+        </article>
+      </div>
+      <a class="scroll-cue" href="#leitor"><span>Explorar o livro</span><span aria-hidden="true">↓</span></a>
+    </section>
 
-        <div class="book-preview" aria-hidden="true">
-          <div class="book-preview__glow"></div>
-          <div class="book">
-            <div class="book__spine"></div>
-            <div class="book__cover">
-              <span class="book__symbol">B</span>
-              <span class="book__line"></span>
-              <strong>Histórias<br>que ganham<br>vida.</strong>
-              <small>BOOKFORGE EDITIONS</small>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <section class="reader-section" id="leitor" aria-labelledby="readerTitle">
+      <header class="section-heading">
+        <div><p class="eyebrow">Leitor digital</p><h2 id="readerTitle">Leia no seu ritmo</h2></div>
+        <div class="reader-meta" aria-live="polite"><span id="pageIndicator">Página 1 de 26</span><strong id="percentRead">0% lido</strong></div>
+      </header>
+      <div class="resume-banner" id="resumeBanner" hidden>
+        <p>Encontramos uma posição de leitura salva neste dispositivo.</p>
+        <div><button class="button primary" id="resumeButton" type="button">Continuar de onde parei</button><button class="text-button" id="restartButton" type="button">Reiniciar leitura</button></div>
+      </div>
+      <div class="reader-toolbar" aria-label="Controles do leitor">
+        <button class="icon-button" id="previousPage" type="button">← <span>Anterior</span></button>
+        <form id="pageForm"><label for="pageInput">Ir para</label><input id="pageInput" type="number" min="1" value="1" inputmode="numeric"><button type="submit">Ir</button></form>
+        <button class="icon-button" id="nextPage" type="button"><span>Próxima</span> →</button>
+        <button class="icon-button" id="fullscreenButton" type="button">⛶ <span>Tela cheia</span></button>
+      </div>
+      <div class="reader-shell" id="readerShell">
+        <div id="pagesReader" class="pages-reader" hidden></div>
+        <object id="pdfReader" class="pdf-reader" data="assets/pdf/guia-drcm-computacao.pdf#page=1&amp;view=FitH" type="application/pdf" aria-label="Guia Prático do DRCM Computação em PDF">
+          <div class="reader-fallback"><h3>O leitor de PDF não está disponível</h3><p>Abra o documento em uma nova guia ou baixe-o para continuar.</p><a class="button primary pdf-action" href="assets/pdf/guia-drcm-computacao.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a></div>
+        </object>
+        <div class="reader-fallback" id="missingPdf" hidden><span class="fallback-icon" aria-hidden="true">!</span><h3>PDF aguardando publicação</h3><p>O site está pronto. Adicione o arquivo no caminho indicado para habilitar a leitura e o download.</p><code>assets/pdf/guia-drcm-computacao.pdf</code></div>
+      </div>
+      <p class="reader-help">Atalhos: <kbd>S</kbd> sumário, <kbd>D</kbd> tema, <kbd>F</kbd> tela cheia e <kbd>Ctrl</kbd> + <kbd>K</kbd> pesquisa.</p>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      <p>Feito para transformar páginas em experiências.</p>
-    </footer>
-  </body>
+  <footer><p>Guia Prático do DRCM Computação <span>·</span> Edição Digital 2026</p><a href="#topo">Voltar ao início</a></footer>
+  <button class="back-top" id="backTop" type="button" aria-label="Voltar ao topo" hidden>↑</button>
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="tocDrawer" aria-labelledby="tocTitle" aria-hidden="true">
+    <header><div><p class="eyebrow">Navegação</p><h2 id="tocTitle">Sumário</h2></div><button class="icon-button close-control" type="button" aria-label="Fechar sumário">×</button></header>
+    <nav aria-label="Capítulos do livro"><ol id="chapterList"></ol></nav>
+    <button class="search-shortcut" id="drawerSearch" type="button">Pesquisar capítulos <kbd>⌘K</kbd></button>
+  </aside>
+  <dialog id="searchDialog" aria-labelledby="searchTitle">
+    <form method="dialog" class="dialog-head"><h2 id="searchTitle">Pesquisar capítulos</h2><button class="icon-button close-control" value="cancel" aria-label="Fechar pesquisa">×</button></form>
+    <label class="search-field"><span class="sr-only">Título do capítulo</span><span aria-hidden="true">⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Digite um capítulo…"></label>
+    <p class="search-scope">A pesquisa consulta títulos e metadados, não o texto interno do PDF.</p>
+    <ul id="searchResults" class="search-results"></ul>
+    <p id="emptySearch" class="empty-state" hidden>Nenhum capítulo encontrado.</p>
+  </dialog>
+  <p class="toast" id="liveRegion" role="status" aria-live="polite" aria-atomic="true"></p>
+</body>
 </html>
