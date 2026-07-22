@@ -1,28 +1,602 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="light">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content=""><meta name="author" content=""><meta name="theme-color" content="#f5f2e9">
-  <meta property="og:type" content="book"><meta property="og:title" content=""><meta property="og:description" content=""><meta property="og:image" content="assets/images/pages/page-001.webp">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content=""><meta name="twitter:description" content="">
-  <link id="canonical" rel="canonical" href=""><link rel="manifest" href="site.webmanifest"><link rel="icon" href="assets/icons/book.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
-  <title>BookForge</title><script id="bookMetadata" type="application/ld+json">{}</script><script src="book-config.js" defer></script><script src="script.js" defer></script>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#f5f2e9">
+
+  <meta property="og:type" content="book">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta
+    property="og:image"
+    content="assets/images/pages/page-001.webp"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+
+  <link
+    id="canonical"
+    rel="canonical"
+    href=""
+  >
+
+  <link
+    rel="manifest"
+    href="site.webmanifest"
+  >
+
+  <link
+    rel="icon"
+    href="assets/icons/book.svg"
+    type="image/svg+xml"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css?v=mobile-fix-3"
+  >
+
+  <title>BookForge</title>
+
+  <script
+    id="bookMetadata"
+    type="application/ld+json"
+  >{}</script>
+
+  <script
+    src="book-config.js?v=mobile-fix-3"
+    defer
+  ></script>
+
+  <script
+    src="script.js?v=mobile-fix-3"
+    defer
+  ></script>
 </head>
+
 <body>
-<a class="skip-link" href="#main">Pular para o conteúdo</a><div class="top-progress" aria-hidden="true"><span id="progressBar"></span></div>
-<header class="topbar" id="topo"><a class="brand" href="#topo"><span aria-hidden="true">BF</span><b data-short-title></b></a><button class="mobile-menu" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu</button><nav id="mainNav" aria-label="Navegação principal"><a href="#topo">Início</a><a href="#leitura">Leitura</a><button id="tocOpen" aria-expanded="false" aria-controls="tocDrawer">Sumário</button><button id="themeToggle">Tema</button><button id="shareButton">Compartilhar</button><a class="pill pdf-download" download>Baixar PDF</a></nav></header>
-<main id="main">
-  <section class="hero" aria-labelledby="heroTitle"><div class="hero-copy"><p class="eyebrow">Edição Digital <span data-year></span></p><h1 id="heroTitle" data-title></h1><p class="dek" data-description></p><p class="byline">Por <strong data-author></strong></p><div class="actions"><a class="pill primary" href="#leitura">Começar a leitura</a><a class="pill pdf-download" download>Baixar PDF</a></div><ul class="facts"><li><b data-total></b> páginas</li><li>Leitura online</li><li>PDF para download</li></ul></div><div class="cover-stage"><div class="cover-skeleton" id="coverSkeleton"><span>Capa da edição digital</span></div><img id="coverImage" width="1600" height="2263" alt="" fetchpriority="high" decoding="async"></div></section>
-  <section class="reader-section" id="leitura" aria-labelledby="readerTitle"><header class="section-head"><div><p class="eyebrow"></p><h2 id="readerTitle"></h2></div><div class="reading-status"><span id="pageIndicator">Página 1 de 26</span><b id="percentRead">4% lido</b></div></header>
-    <aside class="resume" id="resumeBanner" hidden><p>Você parou na página <b id="resumePage"></b>.</p><div><button id="resumeButton">Continuar</button><button id="restartButton">Começar do início</button><button id="dismissResume" aria-label="Fechar aviso">×</button></div></aside>
-    <div class="reader" id="readerShell"><div class="reader-loading" id="readerLoading"><div class="skeleton"></div><p>Preparando sua edição digital…</p></div><div class="single-stage" id="singleStage" hidden><div class="page-scroll"><img id="singleImage" width="1600" height="2263" alt="" decoding="async"><div class="page-error" id="pageError" hidden><h3>Esta página não pôde ser carregada.</h3><p>Você pode seguir a leitura ou consultar o PDF.</p><a class="pill pdf-open" target="_blank" rel="noopener noreferrer">Abrir PDF</a></div></div></div><div class="continuous" id="continuousReader" hidden></div><div class="online-fallback" id="onlineFallback" hidden><p class="eyebrow">Edição em preparação</p><h3>A versão para leitura online está sendo preparada.</h3><p>Enquanto isso, consulte a edição original em PDF.</p><div class="actions"><a class="pill primary pdf-open" target="_blank" rel="noopener noreferrer">Abrir PDF</a><a class="pill pdf-download" download>Baixar PDF</a></div><p id="pdfMissing" hidden>O arquivo também está temporariamente indisponível.</p></div></div>
-    <div class="reader-controls" id="readerControls" hidden><button id="previousPage">← Anterior</button><form id="pageForm"><label for="pageInput">Ir para</label><input id="pageInput" type="number" min="1" max="26" value="1"><button>Ir</button></form><button id="nextPage">Próxima →</button><span class="divider"></span><button id="zoomOut" aria-label="Diminuir zoom">−</button><button id="zoomReset"><span id="zoomLabel">100%</span></button><button id="zoomIn" aria-label="Aumentar zoom">+</button><button id="fitWidth">Ajustar</button><button id="modeToggle">Modo contínuo</button><button id="fullscreenButton">Tela cheia</button><button id="readerToc">Sumário</button><a class="control-link pdf-download" download>PDF</a></div>
-    <p class="shortcut-help">Atalhos: ←/→ páginas · S sumário · D tema · F tela cheia · Ctrl/Cmd + K pesquisa</p>
+  <a class="skip-link" href="#main">
+    Pular para o conteúdo
+  </a>
+
+  <div class="top-progress" aria-hidden="true">
+    <span id="progressBar"></span>
+  </div>
+
+  <header class="topbar" id="topo">
+    <a class="brand" href="#topo">
+      <span aria-hidden="true">BF</span>
+      <b data-short-title></b>
+    </a>
+
+    <button
+      class="mobile-menu"
+      id="menuToggle"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      Menu
+    </button>
+
+    <nav
+      id="mainNav"
+      aria-label="Navegação principal"
+    >
+      <a href="#topo">Início</a>
+      <a href="#leitura">Leitura</a>
+
+      <button
+        id="tocOpen"
+        aria-expanded="false"
+        aria-controls="tocDrawer"
+      >
+        Sumário
+      </button>
+
+      <button id="themeToggle">
+        Tema
+      </button>
+
+      <button id="shareButton">
+        Compartilhar
+      </button>
+
+      <a class="pill pdf-download" download>
+        Baixar PDF
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section
+      class="hero"
+      aria-labelledby="heroTitle"
+    >
+      <div class="hero-copy">
+        <p class="eyebrow">
+          Edição Digital
+          <span data-year></span>
+        </p>
+
+        <h1 id="heroTitle" data-title></h1>
+
+        <p class="dek" data-description></p>
+
+        <p class="byline">
+          Por <strong data-author></strong>
+        </p>
+
+        <div class="actions">
+          <a
+            class="pill primary"
+            href="#leitura"
+          >
+            Começar a leitura
+          </a>
+
+          <a
+            class="pill pdf-download"
+            download
+          >
+            Baixar PDF
+          </a>
+        </div>
+
+        <ul class="facts">
+          <li>
+            <b data-total></b> páginas
+          </li>
+
+          <li>Leitura online</li>
+          <li>PDF para download</li>
+        </ul>
+      </div>
+
+      <div class="cover-stage">
+        <div
+          class="cover-skeleton"
+          id="coverSkeleton"
+        >
+          <span>
+            Capa da edição digital
+          </span>
+        </div>
+
+        <img
+          id="coverImage"
+          width="1600"
+          height="2263"
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+        >
+      </div>
+    </section>
+
+    <section
+      class="reader-section"
+      id="leitura"
+      aria-labelledby="readerTitle"
+    >
+      <header class="section-head">
+        <div>
+          <p class="eyebrow"></p>
+          <h2 id="readerTitle"></h2>
+        </div>
+
+        <div class="reading-status">
+          <span id="pageIndicator">
+            Página 1 de 26
+          </span>
+
+          <b id="percentRead">
+            4% lido
+          </b>
+        </div>
+      </header>
+
+      <aside
+        class="resume"
+        id="resumeBanner"
+        hidden
+      >
+        <p>
+          Você parou na página
+          <b id="resumePage"></b>.
+        </p>
+
+        <div>
+          <button id="resumeButton">
+            Continuar
+          </button>
+
+          <button id="restartButton">
+            Começar do início
+          </button>
+
+          <button
+            id="dismissResume"
+            aria-label="Fechar aviso"
+          >
+            ×
+          </button>
+        </div>
+      </aside>
+
+      <div
+        class="reader"
+        id="readerShell"
+      >
+        <div
+          class="reader-loading"
+          id="readerLoading"
+        >
+          <div class="skeleton"></div>
+
+          <p>
+            Preparando sua edição digital…
+          </p>
+        </div>
+
+        <div
+          class="single-stage"
+          id="singleStage"
+          hidden
+        >
+          <div class="page-scroll">
+            <img
+              id="singleImage"
+              width="1600"
+              height="2263"
+              alt=""
+              decoding="async"
+              loading="eager"
+            >
+
+            <div
+              class="page-error"
+              id="pageError"
+              hidden
+            >
+              <h3>
+                Esta página não pôde ser carregada.
+              </h3>
+
+              <p>
+                Você pode seguir a leitura ou consultar o PDF.
+              </p>
+
+              <a
+                class="pill pdf-open"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Abrir PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="continuous"
+          id="continuousReader"
+          hidden
+        ></div>
+
+        <div
+          class="online-fallback"
+          id="onlineFallback"
+          hidden
+        >
+          <p class="eyebrow">
+            Edição em preparação
+          </p>
+
+          <h3>
+            A versão para leitura online está sendo preparada.
+          </h3>
+
+          <p>
+            Enquanto isso, consulte a edição original em PDF.
+          </p>
+
+          <div class="actions">
+            <a
+              class="pill primary pdf-open"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir PDF
+            </a>
+
+            <a
+              class="pill pdf-download"
+              download
+            >
+              Baixar PDF
+            </a>
+          </div>
+
+          <p id="pdfMissing" hidden>
+            O arquivo também está temporariamente indisponível.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="reader-controls"
+        id="readerControls"
+        hidden
+      >
+        <button id="previousPage">
+          ← Anterior
+        </button>
+
+        <form id="pageForm">
+          <label for="pageInput">
+            Ir para
+          </label>
+
+          <input
+            id="pageInput"
+            type="number"
+            min="1"
+            max="26"
+            value="1"
+            inputmode="numeric"
+          >
+
+          <button type="submit">
+            Ir
+          </button>
+        </form>
+
+        <button id="nextPage">
+          Próxima →
+        </button>
+
+        <span class="divider"></span>
+
+        <button
+          id="zoomOut"
+          aria-label="Diminuir zoom"
+        >
+          −
+        </button>
+
+        <button id="zoomReset">
+          <span id="zoomLabel">
+            100%
+          </span>
+        </button>
+
+        <button
+          id="zoomIn"
+          aria-label="Aumentar zoom"
+        >
+          +
+        </button>
+
+        <button id="fitWidth">
+          Ajustar
+        </button>
+
+        <button id="modeToggle">
+          Modo contínuo
+        </button>
+
+        <button id="fullscreenButton">
+          Tela cheia
+        </button>
+
+        <button id="readerToc">
+          Sumário
+        </button>
+
+        <a
+          class="control-link pdf-download"
+          download
+        >
+          PDF
+        </a>
+      </div>
+
+      <p class="shortcut-help">
+        Atalhos: ←/→ páginas · S sumário · D tema ·
+        F tela cheia · Ctrl/Cmd + K pesquisa
+      </p>
+    </section>
+
+    <section
+      class="about"
+      aria-labelledby="aboutTitle"
+    >
+      <div>
+        <p class="eyebrow">
+          Sobre o livro
+        </p>
+
+        <h2
+          id="aboutTitle"
+          data-title
+        ></h2>
+
+        <p data-description></p>
+      </div>
+
+      <dl>
+        <div>
+          <dt>Autor</dt>
+          <dd data-author></dd>
+        </div>
+
+        <div>
+          <dt>Ano</dt>
+          <dd data-year></dd>
+        </div>
+
+        <div>
+          <dt>Páginas</dt>
+          <dd data-total></dd>
+        </div>
+
+        <div>
+          <dt>Formato</dt>
+          <dd>
+            Edição digital · PDF
+          </dd>
+        </div>
+      </dl>
+
+      <div class="actions">
+        <a
+          class="pill primary pdf-download"
+          download
+        >
+          Baixar PDF
+        </a>
+
+        <button
+          class="pill"
+          id="aboutShare"
+        >
+          Compartilhar
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <b data-title></b>
+
+      <p>
+        <span data-author></span>
+        · Edição Digital
+        <span data-year></span>
+      </p>
+    </div>
+
+    <p>
+      Secretaria Municipal de Educação de
+      Riacho de Santana/BA
+    </p>
+
+    <a href="#topo">
+      Voltar ao início ↑
+    </a>
+  </footer>
+
+  <div
+    class="scrim"
+    id="scrim"
+    hidden
+  ></div>
+
+  <aside
+    class="drawer"
+    id="tocDrawer"
+    aria-hidden="true"
+    aria-labelledby="tocTitle"
+  >
+    <header>
+      <div>
+        <p class="eyebrow">
+          Navegação
+        </p>
+
+        <h2 id="tocTitle">
+          Sumário
+        </h2>
+      </div>
+
+      <button
+        id="tocClose"
+        aria-label="Fechar sumário"
+      >
+        ×
+      </button>
+    </header>
+
+    <div
+      class="tabs"
+      role="tablist"
+    >
+      <button
+        id="chaptersTab"
+        role="tab"
+        aria-selected="true"
+        aria-controls="chaptersPanel"
+      >
+        Capítulos
+      </button>
+
+      <button
+        id="pagesTab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="pagesPanel"
+      >
+        Páginas
+      </button>
+    </div>
+
+    <div
+      id="chaptersPanel"
+      role="tabpanel"
+    >
+      <label class="search-label">
+        Pesquisar capítulos
+
+        <input
+          id="chapterSearch"
+          type="search"
+          autocomplete="off"
+        >
+      </label>
+
+      <ol id="chapterList"></ol>
+    </div>
+
+    <div
+      id="pagesPanel"
+      role="tabpanel"
+      hidden
+    >
+      <ol id="thumbnailList"></ol>
+    </div>
+  </aside>
+
+  <p
+    class="toast"
+    id="liveRegion"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></p>
+
+  <section class="print-only">
+    <h1 data-title></h1>
+    <p data-author></p>
+
+    <p>
+      Use Baixar PDF para imprimir a edição completa.
+    </p>
+
+    <a id="printPdf"></a>
   </section>
-  <section class="about" aria-labelledby="aboutTitle"><div><p class="eyebrow">Sobre o livro</p><h2 id="aboutTitle" data-title></h2><p data-description></p></div><dl><div><dt>Autor</dt><dd data-author></dd></div><div><dt>Ano</dt><dd data-year></dd></div><div><dt>Páginas</dt><dd data-total></dd></div><div><dt>Formato</dt><dd>Edição digital · PDF</dd></div></dl><div class="actions"><a class="pill primary pdf-download" download>Baixar PDF</a><button class="pill" id="aboutShare">Compartilhar</button></div></section>
-</main>
-<footer><div><b data-title></b><p><span data-author></span> · Edição Digital <span data-year></span></p></div><p>Secretaria Municipal de Educação de Riacho de Santana/Ba</p><a href="#topo">Voltar ao início ↑</a></footer>
-<div class="scrim" id="scrim" hidden></div><aside class="drawer" id="tocDrawer" aria-hidden="true" aria-labelledby="tocTitle"><header><div><p class="eyebrow">Navegação</p><h2 id="tocTitle">Sumário</h2></div><button id="tocClose" aria-label="Fechar sumário">×</button></header><div class="tabs" role="tablist"><button id="chaptersTab" role="tab" aria-selected="true" aria-controls="chaptersPanel">Capítulos</button><button id="pagesTab" role="tab" aria-selected="false" aria-controls="pagesPanel">Páginas</button></div><div id="chaptersPanel" role="tabpanel"><label class="search-label">Pesquisar capítulos<input id="chapterSearch" type="search" autocomplete="off"></label><ol id="chapterList"></ol></div><div id="pagesPanel" role="tabpanel" hidden><ol id="thumbnailList"></ol></div></aside>
-<p class="toast" id="liveRegion" role="status" aria-live="polite" aria-atomic="true"></p>
-<section class="print-only"><h1 data-title></h1><p data-author></p><p>Use Baixar PDF para imprimir a edição completa.</p><a id="printPdf"></a></section>
-</body></html>
+</body>
+</html>
