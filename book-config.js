@@ -6,7 +6,7 @@ const BOOK_CONFIG = Object.freeze({
   author: 'Marcos Adriano Marques Silva - Coordenador de Tecnologia e Inovação Educacional',
   publisher: '',
   year: 2026,
-  description: 'Orientações para .',
+  description: 'Orientações para implementação na Rede.',
   pdfPath: 'assets/pdf/guia-drcm-computacao.pdf',
   publicUrl: '',
   totalPages: 26,
