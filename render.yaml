@@ -4,7 +4,7 @@ services:
     runtime: static
     branch: main
     buildCommand: ""
-    staticPublishPath: ..
+    staticPublishPath: .
     autoDeployTrigger: commit
     headers:
       - path: /*
