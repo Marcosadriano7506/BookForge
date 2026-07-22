@@ -4,8 +4,8 @@ services:
     runtime: static
     branch: main
     buildCommand: ""
-    staticPublishPath: .
-    autoDeploy: true
+    staticPublishPath: ..
+    autoDeployTrigger: commit
     headers:
       - path: /*
         name: X-Content-Type-Options

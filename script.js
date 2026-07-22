@@ -14,8 +14,19 @@
     searchDialog: $('#searchDialog'), searchInput: $('#searchInput'), results: $('#searchResults'), empty: $('#emptySearch'),
     pdf: $('#pdfReader'), missing: $('#missingPdf'), pages: $('#pagesReader'), shell: $('#readerShell'),
     progress: $('#progressBar'), percent: $('#percentRead'), indicator: $('#pageIndicator'), pageInput: $('#pageInput'),
-    resume: $('#resumeBanner'), live: $('#liveRegion'), backTop: $('#backTop'), pdfStatus: $('#pdfStatus')
+    resume: $('#resumeBanner'), live: $('#liveRegion'), backTop: $('#backTop'), pdfStatus: $('#pdfStatus'),
+    previous: $('#previousPage'), next: $('#nextPage')
   };
+
+  function synchronizeMetadata() {
+    $('meta[name="author"]').content = config.author;
+    const metadata = {
+      '@context': 'https://schema.org', '@type': 'Book', name: config.title,
+      author: { '@type': 'Person', name: config.author }, description: config.description,
+      inLanguage: 'pt-BR', datePublished: String(config.year), bookFormat: 'https://schema.org/EBook'
+    };
+    $('#bookMetadata').textContent = JSON.stringify(metadata);
+  }
 
   function announce(message) {
     elements.live.textContent = message;
@@ -121,19 +132,30 @@
   }
 
   function setPage(page, scroll = false) {
-    state.currentPage = Math.max(1, Math.min(config.totalPages, Number(page) || 1));
+    const nextPage = Math.max(1, Math.min(config.totalPages, Number(page) || 1));
+    const changed = nextPage !== state.currentPage;
+    state.currentPage = nextPage;
     elements.pageInput.value = state.currentPage;
     elements.pageInput.max = config.totalPages;
     elements.indicator.textContent = `Página ${state.currentPage} de ${config.totalPages}`;
-    $$('#chapterList a').forEach(link => link.setAttribute('aria-current', Number(link.dataset.page) === state.currentPage ? 'page' : 'false'));
-    if (state.imageMode && scroll) $(`[data-page="${state.currentPage}"]`, elements.pages)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-    else if (scroll) {
+    $$('#chapterList a').forEach(link => {
+      if (Number(link.dataset.page) === state.currentPage) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+    elements.previous.disabled = state.currentPage === 1;
+    elements.previous.setAttribute('aria-disabled', String(elements.previous.disabled));
+    elements.next.disabled = state.currentPage === config.totalPages;
+    elements.next.setAttribute('aria-disabled', String(elements.next.disabled));
+    updateProgressPresentation();
+    if (changed && state.imageMode && scroll) $(`[data-page="${state.currentPage}"]`, elements.pages)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    else if (changed && scroll) {
       elements.pdf.data = `${config.pdfPath}#page=${state.currentPage}&view=FitH`;
       elements.shell.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     }
+    return changed;
   }
 
-  function goToPage(page) { setPage(page, true); announce(`Página ${state.currentPage}.`); }
+  function goToPage(page) { if (setPage(page, true)) announce(`Página ${state.currentPage}.`); }
 
   async function resourceExists(path) {
     try { const response = await fetch(path, { method: 'HEAD', cache: 'no-store' }); return response.ok; }
@@ -156,7 +178,7 @@
         const caption = document.createElement('figcaption'); caption.textContent = `Página ${page}`;
         figure.append(image, caption); fragment.append(figure);
       }
-      elements.pages.append(fragment); observePages(); elements.pdfStatus.textContent = 'Leitura por páginas otimizada para este dispositivo.'; return;
+      elements.pages.append(fragment); observePages(); elements.pdfStatus.textContent = 'Leitura por páginas otimizada para este dispositivo.'; updateProgressPresentation(); return;
     }
     const pdfExists = await resourceExists(config.pdfPath);
     if (!pdfExists) {
@@ -165,6 +187,7 @@
       announce('PDF não encontrado. Consulte as instruções de configuração.'); return;
     }
     elements.pdfStatus.textContent = 'PDF disponível para leitura online e impressão.';
+    updateProgressPresentation();
     try {
       const response = await fetch(config.pdfPath, { method: 'HEAD' }); const bytes = Number(response.headers.get('content-length'));
       if (response.ok && bytes) elements.pdfStatus.textContent += ` ${new Intl.NumberFormat('pt-BR', { style: 'unit', unit: 'megabyte', maximumFractionDigits: 1 }).format(bytes / 1048576)}.`;
@@ -182,17 +205,25 @@
 
   function updateScrollProgress() {
     state.scrollQueued = false;
-    const available = document.documentElement.scrollHeight - innerHeight;
-    const percent = available > 0 ? Math.min(100, Math.max(0, scrollY / available * 100)) : 0;
+    elements.backTop.hidden = scrollY < innerHeight;
+    if (state.imageMode) safeStorage('set', storageKeys.progress, JSON.stringify({ y: Math.round(scrollY), page: state.currentPage, savedAt: Date.now() }));
+  }
+
+  function updateProgressPresentation() {
+    if (!state.imageMode) {
+      elements.progress.style.width = '0%';
+      elements.percent.textContent = 'Progresso da página';
+      return;
+    }
+    const percent = config.totalPages > 1 ? (state.currentPage - 1) / (config.totalPages - 1) * 100 : 100;
     elements.progress.style.width = `${percent}%`;
     elements.percent.textContent = `${Math.round(percent)}% lido`;
-    elements.backTop.hidden = scrollY < innerHeight;
-    safeStorage('set', storageKeys.progress, JSON.stringify({ y: Math.round(scrollY), page: state.currentPage, savedAt: Date.now() }));
   }
 
   function onScroll() { if (!state.scrollQueued) { state.scrollQueued = true; requestAnimationFrame(updateScrollProgress); } }
 
   function restorePrompt() {
+    if (!state.imageMode) return;
     let saved;
     try { saved = JSON.parse(safeStorage('get', storageKeys.progress)); } catch (_) { return; }
     if (saved && saved.y > 300) {
@@ -244,5 +275,10 @@
     addEventListener('scroll', onScroll, { passive: true }); document.addEventListener('keydown', onKeydown);
   }
 
-  initializeTheme(); renderChapters(); bindEvents(); restorePrompt(); initializeReader(); updateScrollProgress();
+  async function initialize() {
+    synchronizeMetadata(); initializeTheme(); renderChapters(); bindEvents(); setPage(1);
+    await initializeReader(); restorePrompt(); updateScrollProgress();
+  }
+
+  initialize();
 })();

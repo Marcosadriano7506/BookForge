@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Edição digital do Guia Prático do DRCM Computação: orientação clara para ensinar Computação.">
-  <meta name="author" content="Autoria a confirmar">
+  <meta name="author" content="">
   <meta name="theme-color" content="#f5f1e8">
   <meta property="og:type" content="book">
   <meta property="og:title" content="Guia Prático do DRCM Computação">
@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/icons/book.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <title>Guia Prático do DRCM Computação — Edição Digital</title>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Guia Prático do DRCM Computação","inLanguage":"pt-BR","datePublished":"2026","bookFormat":"https://schema.org/EBook"}</script>
+  <script id="bookMetadata" type="application/ld+json">{"@context":"https://schema.org","@type":"Book","inLanguage":"pt-BR","bookFormat":"https://schema.org/EBook"}</script>
   <script src="book-config.js" defer></script>
   <script src="script.js" defer></script>
 </head>
@@ -71,7 +71,7 @@
         <div><button class="button primary" id="resumeButton" type="button">Continuar de onde parei</button><button class="text-button" id="restartButton" type="button">Reiniciar leitura</button></div>
       </div>
       <div class="reader-toolbar" aria-label="Controles do leitor">
-        <button class="icon-button" id="previousPage" type="button">← <span>Anterior</span></button>
+        <button class="icon-button" id="previousPage" type="button" disabled aria-disabled="true">← <span>Anterior</span></button>
         <form id="pageForm"><label for="pageInput">Ir para</label><input id="pageInput" type="number" min="1" value="1" inputmode="numeric"><button type="submit">Ir</button></form>
         <button class="icon-button" id="nextPage" type="button"><span>Próxima</span> →</button>
         <button class="icon-button" id="fullscreenButton" type="button">⛶ <span>Tela cheia</span></button>
