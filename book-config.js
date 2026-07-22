@@ -1,12 +1,12 @@
 'use strict';
 
 const BOOK_CONFIG = Object.freeze({
-  title: 'Guia Prático do DRCM Computação',
-  shortTitle: 'Guia DRCM',
-  author: 'Marcos Adriano Marques Silva',
+  title: 'Guia Prático do DRCM Computação - Riacho de Santana/BA',
+  shortTitle: 'Guia Prático do Documento Referencial Curricular Municipal de Computação',
+  author: 'Marcos Adriano Marques Silva - Coordenador de Tecnologia e Inovação Educacional',
   publisher: '',
   year: 2026,
-  description: 'Orientações práticas para compreender e ensinar Computação.',
+  description: 'Orientações para .',
   pdfPath: 'assets/pdf/guia-drcm-computacao.pdf',
   publicUrl: '',
   totalPages: 26,
