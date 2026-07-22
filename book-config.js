@@ -3,7 +3,7 @@
 const BOOK_CONFIG = Object.freeze({
   title: 'Guia Prático do DRCM Computação',
   shortTitle: 'Guia DRCM',
-  author: 'Autoria a confirmar',
+  author: 'Marcos Adriano Marques Silva',
   year: 2026,
   description: 'Orientações práticas para compreender e ensinar Computação.',
   pdfPath: 'assets/pdf/guia-drcm-computacao.pdf',

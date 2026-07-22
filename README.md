@@ -37,7 +37,7 @@ Coloque o arquivo, sem converter ou compactar, exatamente em:
 assets/pdf/guia-drcm-computacao.pdf
 ```
 
-Para substituir o livro, troque esse arquivo e revise `title`, `author`, `description`, `totalPages`, `pdfPath` e `chapters` em `book-config.js`, além dos metadados e JSON-LD de `index.html`. O leitor faz uma requisição `HEAD`: se o PDF não estiver disponível, mostra um aviso, oculta apenas o leitor e desabilita as ações dependentes dele. Servidores que não retornam `Content-Length` continuam funcionando, apenas sem exibir o tamanho.
+Para substituir o livro, troque esse arquivo e revise `title`, `author`, `description`, `totalPages`, `pdfPath` e `chapters` em `book-config.js`. A autoria fica centralizada nessa configuração e o JavaScript sincroniza o metadado HTML e o JSON-LD, evitando cópias divergentes. O leitor faz uma requisição `HEAD`: se o PDF não estiver disponível, mostra um aviso, oculta apenas o leitor e desabilita as ações dependentes dele. Servidores que não retornam `Content-Length` continuam funcionando, apenas sem exibir o tamanho.
 
 ### Editar capítulos
 
@@ -61,7 +61,8 @@ Edite os campos em `book-config.js`. Após o primeiro deploy, preencha `publicUr
 
 - a URL `SEU-SITE` em `sitemap.xml`;
 - a linha `Sitemap` em `robots.txt` e remova o comentário;
-- metadados de autoria e JSON-LD em `index.html`, se necessário.
+
+Enquanto não houver uma URL real, mantenha `publicUrl` vazio e preserve os placeholders de `sitemap.xml` e `robots.txt`.
 
 A imagem social padrão é o SVG textual `assets/icons/social-card.svg`; substitua a referência por uma imagem já existente se a plataforma social não aceitar SVG.
 
@@ -104,6 +105,12 @@ O `render.yaml` oferece a alternativa Blueprint, com raiz como diretório public
 - skip link, landmarks, foco visível, áreas de toque e avisos `aria-live`;
 - suporte a `prefers-reduced-motion`, `prefers-contrast`, modo escuro e safe areas;
 - atalhos `Home`, `End`, setas, `Escape`, `D`, `S` e `F`, ignorados durante digitação.
+
+### Progresso nos modos de leitura
+
+No modo de imagens, o percentual acompanha a página visível identificada por `IntersectionObserver`; a página atual e a posição aproximada são salvas para oferecer restauração após confirmação. Os controles externos também atualizam essa página e respeitam os limites inicial e final.
+
+No modo de PDF incorporado, o navegador isola a rolagem interna do visualizador. Por isso, a interface exibe apenas **“Progresso da página”**, sem alegar um percentual preciso, e o número da página muda somente por meio dos controles externos. O projeto não acessa o conteúdo interno do PDF e não usa bibliotecas externas para contornar essa limitação.
 
 A acessibilidade interna do documento incorporado depende da marcação do próprio PDF e do visualizador do navegador. O fallback oferece abertura e download, mas não reproduz texto do livro no DOM.
 
